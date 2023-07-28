@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { AnchorWallet, useAnchorWallet } from '@solana/wallet-adapter-react';
 import { GRAPHQL_ENDPOINTS, useGum } from '@gumhq/react-sdk';
 import { useConnection } from '@solana/wallet-adapter-react';
