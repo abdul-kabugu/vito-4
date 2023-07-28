@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import type { SVGProps } from "react";
 
 const MenuBold = (props: SVGProps<SVGSVGElement>) => (

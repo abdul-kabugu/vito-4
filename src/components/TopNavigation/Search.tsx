@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import { SearchIcon } from '@crossbell/ui'
 import {useState} from 'react'
 import { CiSearch } from "react-icons/ci";

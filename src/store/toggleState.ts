@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 // @ts-nocheck
 
 import { StateCreator, create } from "zustand";

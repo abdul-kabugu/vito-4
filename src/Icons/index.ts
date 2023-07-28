@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import Verified from "./Verified";
 import UploadOutline from "./UploadOutline";
 import BellOutline from "./BellOutline";
