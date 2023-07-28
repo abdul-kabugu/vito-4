@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import type { SVGProps } from "react";
 
 const AppLogo = (props: SVGProps<SVGSVGElement>) => (
