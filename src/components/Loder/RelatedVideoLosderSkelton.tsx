@@ -1,4 +1,4 @@
-import { fakeArrayTwo } from '@/assets/constant'
+import { fakeArrayTwo } from '../constants'
 import React from 'react'
 
 export default function RelatedVideoLosderSkelton() {
