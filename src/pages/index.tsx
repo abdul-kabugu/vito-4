@@ -1,15 +1,27 @@
 // @ts-nocheck
-
+import {useState} from 'react'
 import styles from '@/styles/Home.module.css'
 import { UserPostsDisplay } from '@/components/UserPosts'
 import { MyProfile } from '@/components/MyProfile'
 import { useDiscoverVideos } from '@/hooks'
 import Head from 'next/head'
 import { VideoCard } from '@/components/cards'
+import { fakeArray } from '@/components/constants'
+import VideoCardSkeleton from '@/components/Loder/VideoCardSkeleton'
 function Home() {
    const {posts, isPostsError, isPostsLoading} = useDiscoverVideos()
-
+   const [isTruth, setisTruth] = useState(true)
     console.log("posts from home", posts)
+
+      if(isPostsLoading) {
+         return(
+            <div>
+            
+               <VideoCardSkeleton   />
+        
+            </div>
+         )
+      }
   return (
     <>
        <Head>

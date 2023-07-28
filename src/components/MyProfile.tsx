@@ -2,18 +2,20 @@ import { useGumContext } from '@gumhq/react-sdk';
 import { Profile as ProfileComponent } from '@gumhq/ui-components';
 import { useWallet } from '@solana/wallet-adapter-react';
 import styles from '@/styles/Home.module.css';
-import React from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import { useRouter } from 'next/router';
 import WalletMultiButtonDynamic from './WalletMultiButtonDynamic';
+import { Dialog, Transition } from '@headlessui/react'
 
 export function MyProfile() {
   const wallet = useWallet();
   const { sdk } = useGumContext();
   const router = useRouter();
-  const [myProfiles, setMyProfiles] = React.useState([] as any); 
-
+  const [myProfiles, setMyProfiles] = useState([] as any); 
+  const [testTruth, settestTruth] = useState(true)
+  const [isShowCreateProfile, setisShowCreateProfile] = useState(false)
     console.log("my wallet", wallet?.publicKey)
-  React.useEffect(() => {
+  useEffect(() => {
     const getMyProfile = async () => {
       if (sdk && wallet.publicKey) {
         const myProfile = await sdk.profile.getProfilesByAuthority(wallet.publicKey) || [];
@@ -23,11 +25,72 @@ export function MyProfile() {
     getMyProfile();
   }, [sdk, wallet.publicKey]);
 
+    const handleCreateProfile = () => {
+       setisShowCreateProfile(! isShowCreateProfile)
+    }
+
   // If there are no profiles, render a message saying so.
-  if ( wallet?.publicKey &&  myProfiles.length === 0) {
+  if ( /*wallet?.publicKey &&  myProfiles.length === 0*/ testTruth) {
     return (
       <div>
-      <button className='py-1.5 px-4 rounded-lg bg-fuchsia-600'>create profile</button>
+      <button className='py-1.5 px-4 rounded-lg bg-fuchsia-600' onClick={handleCreateProfile}>create profile</button>
+
+        {isShowCreateProfile && (
+           <Transition appear show={isShowCreateProfile} as={Fragment}>
+           <Dialog as="div" className="relative z-10" onClose={handleCreateProfile}>
+             <Transition.Child
+               as={Fragment}
+               enter="ease-out duration-300"
+               enterFrom="opacity-0"
+               enterTo="opacity-100"
+               leave="ease-in duration-200"
+               leaveFrom="opacity-100"
+               leaveTo="opacity-0"
+             >
+               <div className="fixed inset-0 bg-black bg-opacity-25" />
+             </Transition.Child>
+   
+             <div className="fixed inset-0 overflow-y-auto">
+               <div className="flex min-h-full items-center justify-center p-4 text-center">
+                 <Transition.Child
+                   as={Fragment}
+                   enter="ease-out duration-300"
+                   enterFrom="opacity-0 scale-95"
+                   enterTo="opacity-100 scale-100"
+                   leave="ease-in duration-200"
+                   leaveFrom="opacity-100 scale-100"
+                   leaveTo="opacity-0 scale-95"
+                 >
+                   <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                     <Dialog.Title
+                       as="h3"
+                       className="text-lg font-medium leading-6 text-gray-900"
+                     >
+                     create profile
+                     </Dialog.Title>
+                     <div className="mt-2">
+                       <p className="text-sm text-gray-500">
+                         Your payment has been successfully submitted. We’ve sent
+                         you an email with all of the details of your order.
+                       </p>
+                     </div>
+   
+                     <div className="mt-4">
+                       <button
+                         type="button"
+                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                         onClick={handleCreateProfile}
+                       >
+                         Got it, thanks!
+                       </button>
+                     </div>
+                   </Dialog.Panel>
+                 </Transition.Child>
+               </div>
+             </div>
+           </Dialog>
+         </Transition>
+        )}
       </div>
     );
   }
@@ -55,6 +118,7 @@ export function MyProfile() {
     <div>
    
       {profileComponents}
+      <h2>hellow world</h2>
     </div>
   );
 }

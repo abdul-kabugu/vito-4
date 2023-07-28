@@ -49,11 +49,11 @@ export const profileMenuLinks = [
       icon: FeedOutline,
       to: "/feeds",
     },
-    {
+    /*{
       title: "Popular",
       icon: FireOutline,
       to: "/trending",
-    },
+    },*/
   
     /*{
       title: "Discover",

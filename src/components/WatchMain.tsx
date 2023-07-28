@@ -9,11 +9,18 @@ import RelatedVideos from './cards/RelatedVideos'
 import useGetProfileByAddress from '@/hooks/useGetProfileByAddress'
 import { Profile } from '@gumhq/ui-components'
 import Link from 'next/link'
+import VideoFullSkeleton from './Loder/VideoFullSkeleton'
 export default function WatchMain({vidId, data, loading, error}) {
   const {profile, isProfileLoading, isProfileError} = useGetProfileByAddress(data?.profile)
   const CREATORT_PROFILE = profile?.profile[0]
     console.log("creator profile", CREATORT_PROFILE)
     console.log("data", data)
+
+      if(loading){
+        return(
+          <VideoFullSkeleton   />
+        )
+      }
   return (
     <div className='flex gap-2'>
     <div className='xl:w-[73vw]'>

@@ -17,7 +17,7 @@ import { useGumContext } from "@gumhq/react-sdk";
 export default function Connected() {
   const wallet = useWallet();
   const {sdk} = useGumContext()
-
+const [testTruth, settestTruth] = useState(false)
   const [myProfiles, setMyProfiles] = useState([] as any); 
   const getMyProfile = async () => {
     if (sdk && wallet.publicKey) {
