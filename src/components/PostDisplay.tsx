@@ -21,12 +21,14 @@ const PostDisplay = ({ posts, onReactionCreated }: { posts: PostData[], onReacti
   //   console.log(`Reaction data: ${reactionData}`);
   // };
 
+
+    console.log("some radom posts", posts)
   return (
-    <div className={styles.posts}>
+    <div className={`bg-red-700`}>
       {posts.map((post: any, index: number) => (
         <div className={styles.post} key={index}>
           <div className={styles.postContent}>
-            <div className={styles.postText}>{post.content.content}</div>
+            <div className={styles.postText}>{post.content.content?.title}</div>
             <div className={styles.reactionBtns}>
               {post.reactions && post.reactions.map((reaction: string, index: number) => (
                 <span key={index}>{reaction}</span>

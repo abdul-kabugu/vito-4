@@ -37,7 +37,7 @@ const PostCreator = () => {
   const { createReactionWithSession } = useReaction(sdk);
   const profile = useInitializeProfile();
   const [posts, setPosts] = useState<PostData[]>([]);
-
+   console.log("the session public key", sessionPublicKey?.toBase58())
   console.log(`Error: ${createPostError}`);
 
   const createPostHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -49,6 +49,8 @@ const PostCreator = () => {
       console.log("Session or profile details missing");
       return;
     }
+
+      
 
     const postArray = new TextEncoder().encode(postContent);
     const signature = await updatedSession.signMessage(postArray);
@@ -88,9 +90,11 @@ const PostCreator = () => {
     };
 
     setPosts((prevState) => [metadata, ...prevState]);
-
+   
     setPostContent("");
   };
+
+  
 
   const createReactionHandler = async (reaction: string, postAddress: string) => {
     const updatedSession = await refreshSession(session, cluster);
@@ -126,8 +130,11 @@ const PostCreator = () => {
             />
             <button type="submit">Submit</button>
           </form>
+
+            <button>dispal key </button>
+            
         </div>
-        <PostDisplay posts={posts} onReactionCreated={handleReactionCreated} />
+       <PostDisplay posts={posts} onReactionCreated={handleReactionCreated} />
       </main>
     </>
   );

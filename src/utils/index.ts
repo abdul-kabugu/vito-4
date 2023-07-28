@@ -14,6 +14,7 @@ export const refreshSession = async (session: any, cluster: "devnet" | "mainnet-
   return session;
 };
 
+  console.log("session toens", )
 export const getProfileAccount = async (sdk: SDK, owner: PublicKey) => {
   const profile = await sdk.profile.getProfilesByAuthority(owner);
   if (profile) {

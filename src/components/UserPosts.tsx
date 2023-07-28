@@ -41,7 +41,7 @@ export function UserPostsDisplay() {
     <div className={styles.feedContainer}>
       <h1 className={styles.heading}>User Posts</h1>
       {userPosts.length > 0 && (
-     <h2>hellow  world</h2>
+        <Feed posts={userPosts} skip={0} show={userPosts.length} gap={0.5} />
       )}
     </div>
   );
