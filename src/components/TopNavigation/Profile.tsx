@@ -38,7 +38,7 @@ const CURRENT_CHANNEL = myProfiles[0]?.metadata?.name
     return (
       <div className="flex items-center gap-2">
         <div className="hover:bg-gray-700 cursor-pointer h-8 w-8 flex items-center justify-center rounded-full py-0.5 px-1.5">
-          <BellOutline className="w-6 h-6  rounded-full "  />
+          <BellOutline className="w-6 h-6  rounded-full text-gray-200 "  />
         </div>
         <Link href={`/upload`} className="text-gray-200">
           {/*<div className="flex xs:gap-1 md:gap-2 items-center bg-blue-700 text-white xs:py-1.5 md:py-2 xs:px-2 md:px-3 font-sans rounded-lg cursor-pointer xs:hidden md:flex ">*/}

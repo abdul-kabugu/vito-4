@@ -6,6 +6,7 @@ import {useState, useEffect, Fragment} from 'react';
 import { useRouter } from 'next/router';
 import WalletMultiButtonDynamic from './WalletMultiButtonDynamic';
 import { Dialog, Transition } from '@headlessui/react'
+import CreateProfile from './CreateProfile';
 
 export function MyProfile() {
   const wallet = useWallet();
@@ -30,10 +31,10 @@ export function MyProfile() {
     }
 
   // If there are no profiles, render a message saying so.
-  if ( /*wallet?.publicKey &&  myProfiles.length === 0*/ testTruth) {
+  if ( wallet?.publicKey &&  myProfiles.length === 0) {
     return (
       <div>
-      <button className='py-1.5 px-4 rounded-lg bg-fuchsia-600' onClick={handleCreateProfile}>create profile</button>
+      <button className='py-1.5 px-4 rounded-lg bg-fuchsia-600 text-gray-300' onClick={handleCreateProfile}>create profile</button>
 
         {isShowCreateProfile && (
            <Transition appear show={isShowCreateProfile} as={Fragment}>
@@ -61,29 +62,17 @@ export function MyProfile() {
                    leaveFrom="opacity-100 scale-100"
                    leaveTo="opacity-0 scale-95"
                  >
-                   <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                   <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-black border-r-fuchsia-950/30 text-white p-2 text-left align-middle shadow-xl transition-all">
                      <Dialog.Title
                        as="h3"
-                       className="text-lg font-medium leading-6 text-gray-900"
+                       className="text-lg font-medium leading-6 text-white"
                      >
                      create profile
                      </Dialog.Title>
                      <div className="mt-2">
-                       <p className="text-sm text-gray-500">
-                         Your payment has been successfully submitted. We’ve sent
-                         you an email with all of the details of your order.
-                       </p>
+                     <CreateProfile    />
                      </div>
    
-                     <div className="mt-4">
-                       <button
-                         type="button"
-                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                         onClick={handleCreateProfile}
-                       >
-                         Got it, thanks!
-                       </button>
-                     </div>
                    </Dialog.Panel>
                  </Transition.Child>
                </div>
@@ -118,7 +107,7 @@ export function MyProfile() {
     <div>
    
       {profileComponents}
-      <h2>hellow world</h2>
+    
     </div>
   );
 }

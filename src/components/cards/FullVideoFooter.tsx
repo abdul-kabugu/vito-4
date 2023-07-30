@@ -54,7 +54,7 @@ export default function FullVideoCardFooter({ video }) {
  
 
   return (
-    <div className='mt-3 lg:px-6 w-full  overflow-x-hidden'>
+    <div className='mt-3 lg:px-6 w-full  overflow-x-hidden text-gray-300'>
       <div className='flex xs:gap-2 gap-4'>
         <div className={`${isThisLiked && "text-violet-500"} flex gap-1 py-1 xs:px-1  lg:px-3 rounded-md  cursor-pointer font-semibold text-gray-400 items-center hover:bg-gray-800`} onClick={() => handleLike("like")}>
           <LikeAlt className='w-5 h-5' />
@@ -108,7 +108,7 @@ export default function FullVideoCardFooter({ video }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-black border border-fuchsia-900/50 p-6 text-left align-middle shadow-xl transition-all  ">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl text-gray-300 bg-black border border-fuchsia-900/50 p-6 text-left align-middle shadow-xl transition-all  ">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 "
@@ -151,7 +151,7 @@ export default function FullVideoCardFooter({ video }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full border border-fuchsia-700/30  max-w-md transform overflow-hidden rounded-2xl bg-black py-2 px-4 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full border border-fuchsia-700/30 text-gray-300 max-w-md transform overflow-hidden rounded-2xl bg-black py-2 px-4 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="div"
                     className="text-lg font-medium leading-6 "

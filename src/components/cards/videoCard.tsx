@@ -35,7 +35,7 @@ export default function VideoCard({video}) {
          </div>
          </Link>
           <div>
-               <h1 className='text-lg font-thin mb-0'> { video?.metadata?.content?.content?.title && shortenTxt( video?.metadata?.content?.content?.title, 30)}</h1>
+               <h1 className='text-lg font-thin text-gray-300 mb-0'> { video?.metadata?.content?.content?.title && shortenTxt( video?.metadata?.content?.content?.title, 30)}</h1>
                 <div className='flex gap-1 items-center '>
                   <AiOutlineFieldTime   className='w-3.5 h-3.5 text-gray-500'   />
                <p className=' text-gray-500 text-sm'>{duration.humanize().replace("a ", "")} ago</p>

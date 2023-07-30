@@ -27,7 +27,7 @@ export default function VideoSelector({ handleSelectFile }) {
             Drag and Drop File <br /> Video to Upload
           </h1>
           <button
-            className="bg-blue-500 hover:bg-blue-400 text-white py-2 px-4 rounded-lg font-semibold"
+            className="bg-fuchsia-600 hover:bg-fuchsia-500 text-white py-2 px-4 rounded-lg font-semibold"
             onClick={handleOpenInput}
           >
             Or Choose File

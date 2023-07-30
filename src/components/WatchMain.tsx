@@ -22,7 +22,7 @@ export default function WatchMain({vidId, data, loading, error}) {
         )
       }
   return (
-    <div className='flex gap-2'>
+    <div className='flex gap-2 text-gray-300'>
     <div className='xl:w-[73vw]'>
         <FullVideoCard  video={data}  />
 
